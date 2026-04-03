@@ -1,0 +1,10 @@
+{
+  "name": "neetcode-submissions",
+  "private": true,
+  "scripts": {
+    "workbench": "node tools/update-workbench.mjs",
+    "workbench:serve": "node tools/workbench-server.mjs",
+    "apply-fix": "node tools/apply-fix.mjs",
+    "viz": "npx --yes serve visualizer -p 5173"
+  }
+}

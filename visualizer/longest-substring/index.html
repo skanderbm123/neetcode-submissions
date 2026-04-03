@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Longest substring — step visualizer</title>
+    <link rel="stylesheet" href="../shared/viz.css" />
+    <link rel="stylesheet" href="../workbench.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <p class="hub-intro" style="margin: 0 0 0.75rem; font-size: 0.85rem">
+        <a href="../index.html">← Workbench hub</a>
+      </p>
+      <div id="workbenchRoot"></div>
+      <header>
+        <h1>Longest substring without repeating characters</h1>
+        <span class="step-badge" id="stepLabel">Step — / —</span>
+      </header>
+
+      <div class="toolbar">
+        <label>
+          Input&nbsp;
+          <input id="inputS" type="text" value="abcabcbb" spellcheck="false" />
+        </label>
+        <label>
+          Solution&nbsp;
+          <select id="solution"></select>
+        </label>
+        <button type="button" class="primary" id="btnRun">Run</button>
+      </div>
+
+      <div class="panels">
+        <div class="row-label">STRING S</div>
+        <div class="string-row" id="stringRow"></div>
+
+        <div class="vars">
+          <div class="var-box">
+            <div class="lbl">RES (max length)</div>
+            <div class="val" id="resVal">0</div>
+          </div>
+          <div class="var-box" style="flex: 1; min-width: 140px">
+            <div class="lbl" id="charsetLabel">CHARSET</div>
+            <div class="charset-chips" id="charsetBody"></div>
+          </div>
+        </div>
+
+        <div class="var-box" id="mapPanel" style="display: none; margin-bottom: 1rem">
+          <div class="lbl">LAST INDEX MAP</div>
+          <div class="charset-chips" id="mapBody"></div>
+        </div>
+
+        <div class="message" id="message"></div>
+      </div>
+
+      <div class="controls">
+        <input
+          type="range"
+          class="seek"
+          id="seek"
+          min="0"
+          max="0"
+          value="0"
+        />
+        <div class="btn-row">
+          <button type="button" id="btnPrev">Previous</button>
+          <button type="button" id="btnPlay">Play</button>
+          <button type="button" id="btnNext">Next</button>
+          <span class="speed-toggle" style="margin-left: 0.5rem">
+            <span style="font-size: 0.8rem; color: var(--muted)">Speed</span>
+            <button type="button" data-speed="1200">0.5x</button>
+            <button type="button" data-speed="600">1x</button>
+            <button type="button" data-speed="300">2x</button>
+          </span>
+        </div>
+      </div>
+
+      <p class="hint">
+        Pointers: red outline = <code>left</code>, green = <code>right</code>.
+        The animation is a JavaScript twin of the sliding-window idea; the panel
+        above runs your real <code>.java</code> file through the Java harness
+        when you run <code>npm run workbench</code>. Add algorithm variants in
+        <code>viz.js</code> (<code>SOLUTIONS</code>).
+      </p>
+    </div>
+
+    <script src="../submissions-manifest.js"></script>
+    <script src="../fix-suggestions.js"></script>
+    <script src="../workbench.js"></script>
+    <script src="viz.js"></script>
+  </body>
+</html>

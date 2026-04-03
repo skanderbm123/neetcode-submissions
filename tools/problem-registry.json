@@ -1,0 +1,26 @@
+{
+  "longest-substring-without-duplicates": {
+    "harness": "longestSubstring",
+    "viz": "longest-substring/index.html"
+  },
+  "two-integer-sum": {
+    "harness": "twoSum",
+    "viz": "two-integer-sum/index.html"
+  },
+  "is-palindrome": {
+    "harness": "isPalindrome",
+    "viz": "is-palindrome/index.html"
+  },
+  "is-anagram": {
+    "harness": "isAnagram",
+    "viz": "is-anagram/index.html"
+  },
+  "duplicate-integer": {
+    "harness": "duplicateInteger",
+    "viz": "duplicate-integer/index.html"
+  },
+  "anagram-groups": {
+    "harness": "anagramGroups",
+    "viz": "anagram-groups/index.html"
+  }
+}

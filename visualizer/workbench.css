@@ -1,0 +1,139 @@
+.workbench {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.workbench h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.workbench .meta {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.workbench .badge {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 0.35rem;
+}
+
+.workbench .badge.ok {
+  background: rgba(63, 185, 80, 0.2);
+  color: #3fb950;
+}
+
+.workbench .badge.fail {
+  background: rgba(248, 81, 73, 0.2);
+  color: #f85149;
+}
+
+.workbench .badge.skip {
+  background: rgba(139, 148, 158, 0.2);
+  color: var(--muted);
+}
+
+.workbench pre {
+  margin: 0.5rem 0 0;
+  padding: 0.6rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: auto;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  max-height: 10rem;
+  white-space: pre-wrap;
+}
+
+.workbench .file-path {
+  font-family: ui-monospace, monospace;
+  font-size: 0.8rem;
+  word-break: break-all;
+}
+
+.workbench a {
+  color: var(--accent);
+}
+
+.fix-suggestions {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.fix-suggestions h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.fix-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  margin-top: 0.5rem;
+  background: var(--bg);
+}
+
+.fix-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+
+.fix-cat {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.fix-cat.syntax {
+  background: rgba(88, 166, 255, 0.15);
+  color: var(--accent);
+}
+
+.fix-cat.logic {
+  background: rgba(210, 153, 34, 0.15);
+  color: #d29922;
+}
+
+.fix-detail {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+button.fix-apply {
+  background: #238636;
+  border-color: #238636;
+  color: #fff;
+  margin-right: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+button.fix-copy-cli {
+  margin-top: 0.25rem;
+}
+
+.fix-apply-note {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
+}

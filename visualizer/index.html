@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Neetcode workbench</title>
+    <link rel="stylesheet" href="shared/viz.css" />
+    <link rel="stylesheet" href="workbench.css" />
+    <style>
+      .hub-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.88rem;
+      }
+      .hub-table th,
+      .hub-table td {
+        border: 1px solid var(--border);
+        padding: 0.5rem 0.65rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      .hub-table th {
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 0.72rem;
+        letter-spacing: 0.04em;
+      }
+      .hub-intro {
+        margin-bottom: 1rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Workbench</h1>
+        <span class="step-badge" id="hubGenerated">Manifest —</span>
+      </header>
+
+      <p class="hub-intro">
+        This page lists every folder under
+        <code>Data Structures &amp; Algorithms</code> that contains
+        <code>submission-*.java</code> files. Run
+        <code>npm run workbench</code> from the repo root to rescan, compile,
+        and run harness tests against your
+        <strong>latest</strong> submission per folder. Add a new problem folder
+        in the registry when you want Java verification:
+        <code>tools/problem-registry.json</code> plus a harness in
+        <code>tools/harnesses.mjs</code>. When Java verify fails, each problem
+        viz page shows <strong>suggested fixes</strong> (from compiler output +
+        a small hint catalog). Use <code>npm run workbench:serve</code> for
+        one-click <strong>Apply</strong> on safe syntax patches, or
+        <code>npm run apply-fix</code> from a terminal.
+      </p>
+
+      <div id="hubTableWrap"></div>
+    </div>
+
+    <script src="submissions-manifest.js"></script>
+    <script src="fix-suggestions.js"></script>
+    <script src="workbench.js"></script>
+    <script>
+      (function () {
+        var wb = window.__NEETCODE_WORKBENCH__;
+        var gen = document.getElementById("hubGenerated");
+        if (wb && wb.generatedAt) {
+          gen.textContent = "Manifest " + new Date(wb.generatedAt).toLocaleString();
+        }
+        var wrap = document.getElementById("hubTableWrap");
+        if (!wb || !wb.problems || wb.problems.length === 0) {
+          wrap.innerHTML =
+            '<div class="workbench"><p>No problems found. Add submissions under <code>Data Structures &amp; Algorithms</code>, then run <code>npm run workbench</code>.</p></div>';
+          return;
+        }
+        var esc = function (t) {
+          var d = document.createElement("div");
+          d.textContent = t;
+          return d.innerHTML;
+        };
+        var badge = function (v) {
+          if (!v) return "—";
+          if (v.skipped)
+            return '<span class="badge skip">Skipped</span>';
+          return v.ok
+            ? '<span class="badge ok">OK</span>'
+            : '<span class="badge fail">FAIL</span>';
+        };
+        var rows = wb.problems
+          .map(function (p) {
+            var vizCell = "—";
+            if (p.viz) {
+              vizCell =
+                '<a href="' +
+                esc(p.viz) +
+                '">Open viz</a>';
+            }
+            return (
+              "<tr><td><strong>" +
+              esc(p.displayName) +
+              "</strong><br /><span class=\"file-path\" style=\"font-size:0.8rem;color:var(--muted)\">" +
+              esc(p.folder) +
+              "</span></td><td class=\"file-path\">" +
+              esc(p.latest.relPath) +
+              "</td><td>" +
+              badge(p.verify) +
+              "</td><td>" +
+              vizCell +
+              "</td></tr>"
+            );
+          })
+          .join("");
+        wrap.innerHTML =
+          '<table class="hub-table"><thead><tr><th>Problem</th><th>Latest submission</th><th>Java verify</th><th>Viz</th></tr></thead><tbody>' +
+          rows +
+          "</tbody></table>";
+      })();
+    </script>
+  </body>
+</html>

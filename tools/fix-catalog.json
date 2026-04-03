@@ -1,0 +1,39 @@
+{
+  "longest-substring-without-duplicates": {
+    "patterns": [
+      {
+        "regex": "expected 3 got",
+        "title": "Window likely includes a repeat",
+        "detail": "While your right pointer advances, shrink the left side until the duplicate leaves the active set (or map). If you only move left by one, you can still have repeats inside the window."
+      },
+      {
+        "regex": "expected 1 got",
+        "title": "Check single-character window",
+        "detail": "For strings like \"bbbbb\", the answer is 1. After shrinking, max length should reflect the longest run of distinct characters — often one."
+      },
+      {
+        "regex": "dvdf",
+        "title": "Stale left pointer (classic trap)",
+        "detail": "After removing duplicates, ensure left truly excludes the earlier copy — the HashSet must remove every skipped character from the left until the repeating char is gone."
+      }
+    ]
+  },
+  "two-integer-sum": {
+    "patterns": [
+      {
+        "regex": "twoSum sum",
+        "title": "Indices must point to two different elements",
+        "detail": "Verify you return map.get(complement) before overwriting the map with the current value when they could collide."
+      }
+    ]
+  },
+  "anagram-groups": {
+    "patterns": [
+      {
+        "regex": " vs ",
+        "title": "Canonical key per word",
+        "detail": "Sort each word's characters (or use a count signature). Words that mismatch grouping usually differ in how the key is built or how lists are merged."
+      }
+    ]
+  }
+}

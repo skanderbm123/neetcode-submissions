@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contains duplicate — visualizer</title>
+    <link rel="stylesheet" href="../shared/viz.css" />
+    <link rel="stylesheet" href="../workbench.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <p class="hub-intro" style="margin: 0 0 0.75rem">
+        <a href="../index.html">← Workbench hub</a>
+      </p>
+      <div id="workbenchRoot"></div>
+      <header>
+        <h1>Duplicate integer</h1>
+        <span class="step-badge" id="stepLabel">Step — / —</span>
+      </header>
+
+      <div class="toolbar">
+        <label>
+          nums&nbsp;
+          <input id="inputNums" type="text" value="1,2,3,1" spellcheck="false" />
+        </label>
+        <button type="button" class="primary" id="btnRun">Run</button>
+      </div>
+
+      <div class="panels">
+        <div class="row-label">NUMS</div>
+        <div class="string-row" id="numsRow"></div>
+
+        <div class="vars">
+          <div class="var-box">
+            <div class="lbl">CURRENT i</div>
+            <div class="val" id="idxVal">—</div>
+          </div>
+          <div class="var-box" style="flex: 1; min-width: 160px">
+            <div class="lbl">SET SEEN</div>
+            <div class="charset-chips" id="setBody"></div>
+          </div>
+        </div>
+
+        <div class="message" id="message"></div>
+      </div>
+
+      <div class="controls">
+        <input type="range" class="seek" id="seek" min="0" max="0" value="0" />
+        <div class="btn-row">
+          <button type="button" id="btnPrev">Previous</button>
+          <button type="button" id="btnPlay">Play</button>
+          <button type="button" id="btnNext">Next</button>
+          <span class="speed-toggle" style="margin-left: 0.5rem">
+            <span style="font-size: 0.8rem; color: var(--muted)">Speed</span>
+            <button type="button" data-speed="1200">0.5x</button>
+            <button type="button" data-speed="600">1x</button>
+            <button type="button" data-speed="300">2x</button>
+          </span>
+        </div>
+      </div>
+
+      <p class="hint">Hash set linear scan (<code>hasDuplicate</code> style).</p>
+    </div>
+
+    <script src="../submissions-manifest.js"></script>
+    <script src="../fix-suggestions.js"></script>
+    <script src="../workbench.js"></script>
+    <script src="viz.js"></script>
+  </body>
+</html>
