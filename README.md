@@ -10,6 +10,33 @@
 
 On top of the synced files, this repo includes a small **local workbench**: you can **compile and test your Java submissions**, open **step-by-step visualizers** in the browser, and get **suggested fixes** when tests fail.
 
+### Overview diagram
+
+```mermaid
+flowchart LR
+  NC[NeetCode.io] -->|GitHub Sync| SUB[submission-*.java in repo]
+  SUB --> WB["npm run workbench"]
+  WB --> HV[Java harness tests]
+  HV --> MF[manifest + fix hints]
+  MF --> VZ[visualizer HTML]
+```
+
+### Screenshots
+
+**Workbench hub** (`visualizer/index.html`) — latest submission per problem, Java verify status, links to each visualizer.
+
+<p align="center">
+  <img src="assets/readme/workbench-hub.png" alt="Workbench hub listing problems and Open viz links" width="820" />
+</p>
+
+**Problem visualizer** (example: longest substring without repeating characters) — Java panel from your real `submission-*.java` run, plus step-by-step animation.
+
+<p align="center">
+  <img src="assets/readme/visualizer-longest-substring.png" alt="Longest substring visualizer with Java OK panel and string stepping controls" width="820" />
+</p>
+
+You can add more images under [`assets/readme/`](assets/readme/) and embed them the same way (or use a GitHub-hosted URL from an issue/PR attachment).
+
 ---
 
 ## Repository layout
